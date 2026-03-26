@@ -3,16 +3,16 @@ import sys
 import django
 
 sys.path.append(os.getcwd())
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'pluuto.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'event_project.settings')
 django.setup()
 
 from django.contrib.auth import get_user_model
 
 try:
     User = get_user_model()
-    phone = '9090909090'
+    phone = '8129800342'
     email = 'admin@example.com'
-    password = 'adminpassword'
+    password = 'admin@123'
     
     user, created = User.objects.get_or_create(phone_number=phone)
     user.email = email
