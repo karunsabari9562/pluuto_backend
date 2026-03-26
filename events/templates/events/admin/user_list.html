@@ -23,6 +23,11 @@
                     Type</label>
                 <select name="user_type" class="form-control">
                     <option value="">All Types</option>
+                    {% if request.GET.user_type == 'admin' %}
+                    <option value="admin" selected>Admin</option>
+                    {% else %}
+                    <option value="admin">Admin</option>
+                    {% endif %}
                     {% if request.GET.user_type == 'regular' %}
                     <option value="regular" selected>Regular User</option>
                     {% else %}
@@ -113,7 +118,9 @@
                 </td>
 
                 <td>
-                    {% if user.user_type == 'regular' %}
+                    {% if user.is_superuser %}
+                    <span class="badge" style="background: #ef4444; color: white;">Admin</span>
+                    {% elif user.user_type == 'regular' %}
                     <span class="badge badge-secondary">Regular</span>
                     {% else %}
                     <span class="badge" style="background: #8b5cf6; color: white;">

@@ -49,6 +49,7 @@ class User(AbstractUser):
     auth_provider = models.CharField(max_length=20, choices=AUTH_PROVIDERS, default='phone')
     
     USER_TYPES = (
+        ('admin', 'Admin'),
         ('regular', 'Regular User'),
         ('artist', 'Artist'),
         ('event_organizer', 'Event Organizer'),
